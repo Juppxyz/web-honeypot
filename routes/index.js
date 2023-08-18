@@ -17,16 +17,16 @@ router.get('/auth', webLog, async (req, res) => {
 });
 
 router.get('/xyz-authenticated', webLog, async (req, res) => {
-  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "auth.html"))
+  res.status(200).sendFile(path.join(process.env.BASE_PATH,"web-honeypot", "views", "auth.html"))
 });
 
 
 router.get('/login', webLog, async (req, res) => {
-  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "login.html"));
+  res.status(200).sendFile(path.join(process.env.BASE_PATH,"web-honeypot", "views", "login.html"));
 });
 
 router.get('/', webLog, async (req, res) => {
-  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "index.html"));
+  res.status(200).sendFile(path.join(process.env.BASE_PATH,"web-honeypot", "views", "index.html"));
 });
 
 // POST
