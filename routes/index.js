@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
 const webLog = require('../log/webLog');
+const path = require("path");
 
 // GET
 router.get('/auth', webLog, async (req, res) => {
@@ -15,16 +17,16 @@ router.get('/auth', webLog, async (req, res) => {
 });
 
 router.get('/xyz-authenticated', webLog, async (req, res) => {
-  res.status(200).sendFile('D:\\Projects\\xyz-network\\winnie-pooh\\web-honeypot\\views\\auth.html')
+  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "auth.html"))
 });
 
 
 router.get('/login', webLog, async (req, res) => {
-  res.status(200).sendFile("D:\\Projects\\xyz-network\\winnie-pooh\\web-honeypot\\views\\login.html");
+  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "login.html"));
 });
 
 router.get('/', webLog, async (req, res) => {
-  res.status(200).sendFile("D:\\Projects\\xyz-network\\winnie-pooh\\web-honeypot\\views\\index.html");
+  res.status(200).sendFile(path.join(process.env.LOG_PATH,"web-honeypot", "views", "index.html"));
 });
 
 // POST
